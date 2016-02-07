@@ -38,7 +38,7 @@ $(document).ready(function() {
                 console.log(data);
                 people = data.people;
                 for( var i = 0; i < people.length; i++ ) {
-                    $('#next').before('<li id="' + i + '"><a class="page" href="#">' + (i + 1) + '</a></li>');
+                    $('#next').before('<li data-id="' + i + '"><a class="page" href="#">' + (i + 1) + '</a></li>');
                 }
                 for( var j = 0; j < people.length; j++ ) {
                     $('#peopleContainer').data('person-id', j);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
                 $('.page').on('click', function() {
                     console.log('button!');
-                    personIndex = parseInt($(this).parent().attr('id'));
+                    personIndex = $(this).parent().data('id');
 
                     update();
                 });
