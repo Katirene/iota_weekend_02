@@ -1,5 +1,6 @@
 var people;
 var personIndex = 9;
+//var dataitem;
 
 $(document).ready(function() {
     getData();
@@ -25,6 +26,9 @@ $(document).ready(function() {
         $('.person-favoriteMovie2').fadeOut('slow').html(currentPerson.favoriteMovie2).fadeIn("slow");
         $('.person-favoriteSong').fadeOut('slow').html(currentPerson.favoriteSong).fadeIn("slow");
         $('.pagination li').removeClass('active');
+        //dataitem = $(this).data('id');
+        //console.log(dataitem);
+        //$('ul li.' + dataitem).addClass('active');
         $('#' + personIndex).addClass("active");
 
         //console.log($('#peopleContainer').data());
