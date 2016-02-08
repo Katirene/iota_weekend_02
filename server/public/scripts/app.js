@@ -38,7 +38,7 @@ $(document).ready(function() {
                 console.log(data);
                 people = data.people;
                 for( var i = 0; i < people.length; i++ ) {
-                    $('#next').before('<li data-id="' + i + '"><a class="page" href="#">' + (i + 1) + '</a></li>');
+                    $('#next').before('<li id="' + i + '" data-id="' + i + '"><a class="page" href="#">' + (i + 1) + '</a></li>');
                 }
                 for( var j = 0; j < people.length; j++ ) {
                     $('#peopleContainer').data('person-id', j);
