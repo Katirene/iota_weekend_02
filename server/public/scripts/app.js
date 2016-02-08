@@ -21,10 +21,10 @@ $(document).ready(function() {
 
     function update() {
         var currentPerson = people[personIndex];
-        $('.person-name').fadeOut('slow').html(currentPerson.name).fadeIn("slow");
-        $('.person-favoriteMovie1').fadeOut('slow').html(currentPerson.favoriteMovie1).fadeIn("slow");
-        $('.person-favoriteMovie2').fadeOut('slow').html(currentPerson.favoriteMovie2).fadeIn("slow");
-        $('.person-favoriteSong').fadeOut('slow').html(currentPerson.favoriteSong).fadeIn("slow");
+        $('.person-name').stop(true, true).fadeOut('slow').html(currentPerson.name).stop(true, true).fadeIn("slow");
+        $('.person-favoriteMovie1').stop(true, true).fadeOut('slow').html(currentPerson.favoriteMovie1).stop(true, true).fadeIn("slow");
+        $('.person-favoriteMovie2').stop(true, true).fadeOut('slow').html(currentPerson.favoriteMovie2).stop(true, true).fadeIn("slow");
+        $('.person-favoriteSong').stop(true, true).fadeOut('slow').html(currentPerson.favoriteSong).stop(true, true).fadeIn("slow");
         $('.pagination li').removeClass('active');
         //dataitem = $(this).data('id');
         //console.log(dataitem);
@@ -44,15 +44,17 @@ $(document).ready(function() {
                 for( var i = 0; i < people.length; i++ ) {
                     $('#next').before('<li id="' + i + '" data-id="' + i + '"><a class="page" href="#">' + (i + 1) + '</a></li>');
                 }
-                for( var j = 0; j < people.length; j++ ) {
-                    $('#peopleContainer').data('person-id', j);
-                }
+                //for( var j = 0; j < people.length; j++ ) {
+                  //  $('#peopleContainer').data('person-id', j);
+                //}
 
                 $('.page').on('click', function() {
                     console.log('button!');
+                    var oldPersonIndex = personIndex
                     personIndex = $(this).parent().data('id');
-
-                    update();
+                    if (oldPersonIndex != personIndex) {
+                        update();
+                    }
                 });
 
                 update();

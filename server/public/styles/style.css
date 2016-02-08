@@ -11,7 +11,7 @@
     background-color: #ee100d;
 }
 
-.person-shoutout {
-    height: 200px;
+#peopleContainer {
+    padding: 100px;
 }
 
