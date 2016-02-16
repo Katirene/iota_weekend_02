@@ -1,21 +1,17 @@
-var people;
-var personIndex = 9;
+var people;   //these are the Model in MVC
+var personIndex = 9; //these are the Model in MVC
 //var dataitem;
 
 $(document).ready(function() {
     getData();
     $('#previous').on('click', function () {
         console.log("previous");
-        if (personIndex > 0) {
-            personIndex--;
-        }
+        progressLeft();
         update();
     });
     $('#next').on('click', function () {
         console.log("next");
-        if (personIndex < people.length -1 ) {
-            personIndex++;
-        }
+        progressRight();
         update();
     });
 
@@ -67,6 +63,26 @@ $(document).ready(function() {
 
         });
     }
+
+
+function progressLeft() {
+    personIndex--;
+    //personIndex = (personIndex + people.length - 1) % people.length;
+    if (personIndex > 0) {
+        personIndex = people.length;
+    }
+};
+
+
+    function progressRight() {
+        personIndex++;
+        //personIndex = (personIndex + people.length + 1) % people.length;
+        if (personIndex == people.length) {
+            personIndex = 0;
+        }
+    };
+
+
 });
     //$('p.person-name').replaceWith('<p class="person-name"></p>');
 
