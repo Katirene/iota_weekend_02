@@ -1,5 +1,5 @@
-var people;   //these are the Model in MVC
-var personIndex = 9; //these are the Model in MVC
+var people;
+var personIndex = 9;
 //var dataitem;
 
 $(document).ready(function() {
@@ -67,17 +67,15 @@ $(document).ready(function() {
 
 function progressLeft() {
     personIndex--;
-    //personIndex = (personIndex + people.length - 1) % people.length;
-    if (personIndex > 0) {
-        personIndex = people.length;
+    if (personIndex < 0) {
+        personIndex = (people.length - 1);
     }
 };
 
 
     function progressRight() {
         personIndex++;
-        //personIndex = (personIndex + people.length + 1) % people.length;
-        if (personIndex == people.length) {
+        if (personIndex == (people.length - 1)) {
             personIndex = 0;
         }
     };
